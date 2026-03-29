@@ -4,36 +4,46 @@
     <title>
       ESP32 LOG
     </title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inconsolata&display=swap" rel="stylesheet">
     <style>
       html {
-        font-family: "Courier New", Courier, monospace;
         background-color: black;
         color: white;
       }
       body{
         padding: 5rem;
       }
-      h1{
-        font-weight: bolder;
-        font-size: 3rem;
-      }
-      h2{
-        font-size: 2.5rem;
-      }
-      h3{
-        font-size: 2rem;
-      }
+      h1 { font-size: 1.75rem; font-weight: 600; }  
+      h2 { font-size: 1.25rem; font-weight: 600; }  
+      h3 { font-size: 1rem;    font-weight: 600; } 
+      p, li { font-size: 0.9rem; line-height: 1.8; }
+      time { font-size: 0.8rem; color: white; }
       .projectsNav{
         list-style-type:square;
         columns: 2;
       }
+      h1, h2, h3 { font-family: 'IBM Plex Mono', monospace; }
+      p, li, time { font-family: 'Inconsolata', monospace; }
       a{
         color: white;
         text-decoration: none;
       }
+      article {
+        border-top: 1px solid #333;
+        padding-top: 2rem;
+        margin-top: 2rem;
+      }
     </style>
   </head>
   <body>
+    <header>
+      <h1>
+        Building a Log
+      </h1>
+      <p>
+        This is just a place to track my progress throughout time with my esp32. 
+      </p>
+    </header>
     <h1>Projects</h1>
     <ul class="projectsNav">
       <li><a href="#esp-lighting">Esp 32 light system</a></li>
@@ -42,6 +52,10 @@
     <article class="project" id="esp-lighting">
       <h2>Esp 32 light system</h2>
       <div class="version">
+        <p>Github: <a href="https://github.com/whyshouldibother/Esp32Rewrite">
+          https://github.com/whyshouldibother/Esp32Rewrite
+        </a>
+      </p>
         <h3>Version 1</h3>
         <h4>Date:</h4>
         <span class="date">
