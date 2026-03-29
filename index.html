@@ -34,6 +34,20 @@
         padding-top: 2rem;
         margin-top: 2rem;
       }
+      .todo{
+        display: flex;
+        gap: 1rem;
+      }
+      .todo>*{
+        flex:1;
+      }
+      .pending{
+        width: fit-content;
+      }
+      .completed{
+        text-decoration-line: line-through;
+        -moz-text-decoration-line: line-through;
+      }
     </style>
   </head>
   <body>
@@ -52,6 +66,43 @@
     </ul>
     <article class="project" id="esp-lighting">
       <h2>Esp 32 light system</h2>
+      <h3>Todo</h3>
+      <div class="todo">
+        <ul class="pending">
+          <li>
+            Add human detection using a combination of reed switch and PIR motion detection
+          </li>
+          <li>
+            Use Better jumper cables
+          </li>
+          <li>
+            Configure data editing in SD card
+          </li>
+          <li>
+            Revamp UI for operations like editing scheudling, adding events, etc.
+          </li>
+        </ul>
+        <ul class="completed">
+          <li>
+            Add a Relay Module
+          </li>
+          <li>
+            Connect Relay to Wifi
+          </li>
+          <li>
+            Intreaction from devices on Wifi
+          </li>
+          <li>
+            Scheduled Operations
+          </li>
+          <li>
+            OLED Screen for stats
+          </li>
+          <li>
+            SD card for scheduling Loading
+          </li>
+        </ul>
+      </div>
       <div class="version">
         <p>Github: <a href="https://github.com/whyshouldibother/Esp32Rewrite">
           https://github.com/whyshouldibother/Esp32Rewrite
@@ -154,6 +205,14 @@
     </article>
     <article class="project" id="esp-gif">
       <h2>Esp32 gif loading</h2>
+      <h3>Todo</h3>
+      <div class="todo">
+        <ul class="pending">
+          <li>
+            Adding a way to uploading gifs over wifi
+          </li>
+        </ul>
+      </div>
       <div class="version">
         <h3>Version 1</h3>
         <h4>Date:</h4>
