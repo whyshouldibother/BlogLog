@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      html {
+        font-family: "Courier New", Courier, monospace;
+        background-color: black;
+        color: white;
+      }
+      body{
+        padding: 5rem;
+      }
+      h1{
+        font-weight: bolder;
+        font-size: 3rem;
+      }
+      h2{
+        font-size: 2.5rem;
+      }
+      h3{
+        font-size: 2rem;
+      }
+      .projectsNav{
+        list-style-type:square;
+        columns: 2;
+      }
+      a{
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Projects</h1>
+    <ul class="projectsNav">
+      <li><a href="#esp-lighting">Esp 32 light system</a></li>
+      <li><a href="#esp-gif">Esp GIF system</a></li>
+    </ul>
+    <article class="project" id="esp-lighting">
+      <h2>Esp 32 light system</h2>
+      <div class="version">
+        <h3>Version 1</h3>
+        <h4>Date:</h4>
+        <span class="date">
+          Unknown
+        </span>
+        <h4>Description</h4>
+        <p class="description">
+          Basic Interface for Controlling the lights
+          <ul>
+            <li>Use a relay module to control lights.</li>
+            <li>
+              The action can be triggered by calling a api endpoint on the esp
+              sever
+            </li>
+          </ul>
+        </p>
+      </div>
+      <div class="version">
+        <h3>Version 2.1</h3>
+        <h4>Date:</h4>
+        <span class="date">
+          <time datetime="2026-03-05">
+          5<sup>th</sup> March, 2026
+          </time>
+        </span>
+        <h4>Description</h4>
+        <p class="description">
+          Implemented an automatic scheduling system for the lights
+        </p>
+      </div>
+      <div class="version">
+        <h3>Version 2.2</h3>
+        <h4>Date:</h4>
+        <span class="date">
+          <time datetime="2026-03-06">
+            6<sup>th</sup> March, 2026
+          </time>
+        </span>
+        <h4>Description</h4>
+        <p class="description">
+          Reworkedd the UI for Controll App
+        </p>
+      </div>
+      <div class="version">
+        <h3>Version 3.1</h3>
+        <div class="date">
+          <h4>Date:</h4>
+          24<sup>th</sup> March, 2026
+        </div>
+        <div class="description">
+          <h4>Description</h4>
+          Added Oled Screen
+          <ul>
+            <li>Shows the IP address of the controller</li>
+            <li>Shows the upcoming events and last triggered event</li>
+            <li>Shows upcoming time</li>
+          </ul>
+        </div>
+      </div>
+      <div class="version">
+        <h3>Version 3.2.1</h3>
+        <h4>Date:</h4>
+        <span class="date">
+          <time datetime="2026-03-25">
+            25<sup>th</sup> March, 2026
+          </time>
+        </span>
+        <h4>Description</h4>
+        <p class="description">
+          Added SD card module
+          <ul>
+            <li>Logs startup status</li>
+          </ul>
+        </p>
+      </div>
+      <div class="version">
+        <h3>Version 3.2.2</h3>
+        <h4>Date:</h4>
+        <span class="date">
+          <time datetime="2026-03-26">
+
+            26<sup>th</sup> March, 2026
+          </time>
+        </span>
+        <p class="description">
+          <h4>Description</h4>
+          Shifted scheduling storage
+          <ul>
+            <li>Load default schedule from SD card rather than ESP32 flash</li>
+            <li>Log SD card errors to OLED screen</li>
+            <li>Can use the SD card to easily change schedule without reflashing</li>
+          </ul>
+        </p>
+      </div>
+    </article>
+    <article class="project" id="esp-gif">
+      <h2>Esp32 gif loading</h2>
+      <div class="version">
+        <h3>Version 1</h3>
+        <h4>Date:</h4>
+        <span class="date">
+          <time datetime="2026-03-24">
+            24<sup>th</sup> March, 2026
+          </time>
+        </span>
+        <h4>Description</h4>
+        <p class="description">
+          Loading Gif
+          <ul>
+            <li>Load gif as series of bitmap</li>
+          </ul>
+        </p>
+      </div>
+    </article>
+  </body>
+</html>
