@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-    <loc>https://esp32.shresthaprajwal.info.np/</loc>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>https://esp32.shresthaprajwal.info.np/</loc>
+        <lastmod>2026-04-17</lastmod>
+
+        <image:image>
+            <image:loc>https://esp32.shresthaprajwal.info.np/favicon-144.png</image:loc>
+            <image:title>ESP32 Project Log Logo</image:title>
+        </image:image>
+    </url>
 </urlset>

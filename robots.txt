@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
-
+Allow: /favicon.svg
+Allow: /favicon-144.png
 Sitemap: https://esp32.shresthaprajwal.info.np/sitemap.xml
