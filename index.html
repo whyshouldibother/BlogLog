@@ -62,18 +62,34 @@
         max-height: 75vh;
       }
       .flowcharts {
-      display: grid;
-      gap: 15vw;
-      grid-template-columns: 1fr;
-    }
-    .flowchart{
-      padding: 1vw;
-    }
-    @media (min-width: 600px) {
-      .flowcharts {
-        grid-template-columns: 1fr 1fr;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1vw;
       }
-    }
+
+      @media screen and (min-width: 900px) {
+        .flowcharts {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .flowchart {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2vw;
+      }
+
+      .flowchart img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .flowchart p {
+        margin-top: auto;
+        text-align: center;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -243,21 +259,21 @@
               Fig: Flowchart for Setup
             </p>
           </div>
-           <div class="flowchart"></div>
+          <div class="flowchart">
             <img src="esp32lightsystem/flowCharts/loop.svg" alt="4.1.0-loop">
-                        <p>
+            <p>
               Fig: Flowchart for Loop
             </p>
           </div>
-           <div class="flowchart"></div>
+           <div class="flowchart">
             <img src="esp32lightsystem/flowCharts/timeSync.svg" alt="4.1.0-time-sync">
                         <p>
               Fig: Flowchart for Module Wifi Connection
             </p>
           </div>
-           <div class="flowchart"></div>
+           <div class="flowchart">
             <img src="esp32lightsystem/flowCharts/connectWifi.svg" alt="4.1.0-connect-wifi">
-                        <p>
+            <p>
               Fig: Flowchart for Time Sync
             </p>
           </div>
