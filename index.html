@@ -8,6 +8,7 @@
     <meta property="og:url" content="https://esp32.shresthaprajwal.info.np/">
     <meta property="og:type" content="website" />
     <meta property="og:keywords" content="esp32 prajwal shrestha blog log">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
       ESP32 LOG
     </title>
@@ -60,6 +61,19 @@
         min-width:75vw;
         max-height: 75vh;
       }
+      .flowcharts {
+      display: grid;
+      gap: 15vw;
+      grid-template-columns: 1fr;
+    }
+    .flowchart{
+      padding: 1vw;
+    }
+    @media (min-width: 600px) {
+      .flowcharts {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
     </style>
   </head>
   <body>
@@ -217,6 +231,50 @@
             <li>Load default schedule from SD card rather than ESP32 flash</li>
             <li>Log SD card errors to OLED screen</li>
             <li>Can use the SD card to easily change schedule without reflashing</li>
+          </ul>
+        </p>
+      </div>
+         <div class="version">
+        <h3>Version 4.1.0</h3>
+         <div class="flowcharts">
+          <div class="flowchart">
+            <img src="esp32lightsystem/flowCharts/setup.svg" alt="4.1.0-setup">
+            <p>
+              Fig: Flowchart for Setup
+            </p>
+          </div>
+           <div class="flowchart"></div>
+            <img src="esp32lightsystem/flowCharts/loop.svg" alt="4.1.0-loop">
+                        <p>
+              Fig: Flowchart for Loop
+            </p>
+          </div>
+           <div class="flowchart"></div>
+            <img src="esp32lightsystem/flowCharts/timeSync.svg" alt="4.1.0-time-sync">
+                        <p>
+              Fig: Flowchart for Module Wifi Connection
+            </p>
+          </div>
+           <div class="flowchart"></div>
+            <img src="esp32lightsystem/flowCharts/connectWifi.svg" alt="4.1.0-connect-wifi">
+                        <p>
+              Fig: Flowchart for Time Sync
+            </p>
+          </div>
+          </div>
+        <h4>Date:</h4>
+        <span class="date">
+          <time datetime="2026-04-16">
+
+            16<sup>th</sup> April, 2026
+          </time>
+        </span>
+        <p class="description">
+          <h4>Description</h4>
+          Reworked the firmware code to be more modular by using modules for each task.
+          <ul>
+            <li>Use a Flow chart for better representation of the execution runs</li>
+            <li>Although the flow chart is not fully adpated</li>
           </ul>
         </p>
       </div>
