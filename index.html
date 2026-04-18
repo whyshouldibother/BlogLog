@@ -1,364 +1,579 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-    <link rel="apple-touch-icon" href="/favicon-192.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" href="/favicon-192.png" />
 
-    <meta property="og:title" content="My Project Log">
-    <meta name="description" content="Technical journey and project logs building overengineered ESP32 light systems, GIF loaders, and automated hardware.">
-    <meta property="og:image" content="https://esp32.shresthaprajwal.info.np/favicon.svg">
-    <meta property="og:url" content="https://esp32.shresthaprajwal.info.np/">
+    <meta property="og:title" content="My Project Log" />
+    <meta
+      name="description"
+      content="Technical journey and project logs building overengineered ESP32 light systems, GIF loaders, and automated hardware."
+    />
+    <meta
+      property="og:image"
+      content="https://esp32.shresthaprajwal.info.np/favicon.svg"
+    />
+    <meta property="og:url" content="https://esp32.shresthaprajwal.info.np/" />
     <meta property="og:type" content="website" />
-    <meta property="og:keywords" content="esp32 prajwal shrestha blog log">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-      ESP32 LOG
-    </title>
-    <link rel="canonical" href="https://esp32.shresthaprajwal.info.np/">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inconsolata&display=swap" rel="stylesheet">
+    <meta property="og:keywords" content="esp32 prajwal shrestha blog log" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESP32 LOG</title>
+    <link rel="canonical" href="https://esp32.shresthaprajwal.info.np/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inconsolata&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              // This sets your default mono font
+              mono: ['"IBM Plex Mono"', "monospace"],
+              // This creates a custom class: font-log
+              log: ["Inconsolata", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
     <style>
       html {
         background-color: black;
         color: white;
         font-size: 1.5rem;
-      }
-      body{
-        padding: 5rem;
-      }
-      h1 { font-size: 1.75rem; font-weight: 600; }  
-      h2 { font-size: 1.25rem; font-weight: 600; }  
-      h3 { font-size: 1rem;    font-weight: 600; } 
-      p, li { font-size: 0.9rem; line-height: 1.8; margin-bottom: 2fvh;}
-      time { font-size: 0.8rem; color: white; }
-      .projectsNav{
-        list-style-type:square;
-        columns: 2;
-      }
-      h1, h2, h3 { font-family: 'IBM Plex Mono', monospace; text-decoration-line: underline;}
-      p, li, time { font-family: 'Inconsolata', monospace; }
-      a{
-        color: white;
-        text-decoration: none;
-      }
-      article {
-        border-top: 1px solid #333;
-        padding-top: 2rem;
-        margin-top: 2rem;
-      }
-      .todo{
-        display: flex;
-        gap: 1rem;
-      }
-      .todo>*{
-        flex:1;
-      }
-      .pending{
-        width: fit-content;
-      }
-      .completed{
-        text-decoration-line: line-through;
-        -moz-text-decoration-line: line-through;
-      }
-      .schemaImage{
-        min-width:75vw;
-        max-height: 75vh;
-      }
-      .flowcharts {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1vw;
-      }
-
-      @media screen and (min-width: 900px) {
-        .flowcharts {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-
-      .flowchart {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2vw;
-      }
-
-      .flowchart img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      .flowchart p {
-        margin-top: auto;
-        text-align: center;
-        font-weight: bold;
+        font-family: "IBM Plex Mono", monospace;
       }
     </style>
   </head>
-  <body>
-    <header>
-      <h1>
-        Building a Log
-      </h1>
-      <p>
-        This is just a place to track my progress throughout time with my esp32. 
-      </p>
-    </header>
-    <h1>Projects</h1>
-    <ul class="projectsNav">
-      <li><a href="#esp-lighting">Esp 32 light system</a></li>
-      <li><a href="#esp-gif">Esp GIF system</a></li>
-    </ul>
-    <article class="project" id="esp-lighting">
-      <h2>Esp 32 light system</h2>
-      <h3>Todo</h3>
-      <div class="todo">
-        <ul class="pending">
-          <li>
-            Add human detection using a combination of reed switch and PIR motion detection
-          </li>
-          <li>
-            Configure data editing in SD card
-          </li>
-          <li>
-            Revamp UI for operations like editing scheduling, adding events, etc.
-          </li>
-          <li>
-            Separate power supply for the components and the driver board using an external power supply.
-          </li>
-        </ul>
-        <ul class="completed">
-          <li>
-            Add a Relay Module
-          </li>
-          <li>
-            Connect Relay to Wifi
-          </li>
-          <li>
-            Interaction from devices on Wifi
-          </li>
-          <li>
-            Scheduled Operations
-          </li>
-          <li>
-            OLED Screen for stats
-          </li>
-          <li>
-            SD card for scheduling Loading
-          </li>
-          <li>
-              Use Better jumper cables
-          </li>
-        </ul>
-      </div>
-      <div class="version">
-        <p>Github: <a href="https://github.com/whyshouldibother/Esp32Rewrite">
-          https://github.com/whyshouldibother/Esp32Rewrite
-        </a>
-      </p>
-        <h3>Version 1</h3>
-        <img src="esp32lightsystem/1.svg" alt="version1 schema" class="schemaImage"/>
-        <h4>Date:</h4>
-        <span class="date">
-          Unknown
-        </span>
-        <h4>Description</h4>
-        <p class="description">
-          Basic Interface for Controlling the lights
-          <ul>
-            <li>Use a relay module to control lights.</li>
+  <body class="w-full h-full font-mono">
+    <div class="flex flex-col md:flex-row h-screen w-screen overflow-hidden">
+      <nav class="md:w-48 border-r border-zinc-500 pt-5 p-8 md:sticky md:top-0">
+        <h1 class="text-xl uppercase font-bold mb-8">ESP32 LOG</h1>
+        <div class="mb-10">
+          <h2 class="text-xs text-zinc-500 tracking-widest">Projects</h2>
+          <ul class="space-y-2">
             <li>
-              The action can be triggered by calling a api endpoint on the esp
-              sever
+              <a href="#esp-lighting" class="hover:underline block text-xs"
+                >Light System</a
+              >
+            </li>
+            <li>
+              <a href="#esp-gif" class="hover:underline block text-xs"
+                >GIF Loader</a
+              >
+            </li>
+            <li>
+              <a href="#esp-ping-pong" class="hover:underline block text-xs"
+                >Auto PingPong</a
+              >
             </li>
           </ul>
-        </p>
-      </div>
-      <div class="version">
-        <h3>Version 2.1</h3>
-        <h4>Date:</h4>
-        <span class="date">
-          <time datetime="2026-03-05">
-          5<sup>th</sup> March, 2026
-          </time>
-        </span>
-        <h4>Description</h4>
-        <p class="description">
-          Implemented an automatic scheduling system for the lights
-        </p>
-      </div>
-      <div class="version">
-        <h3>Version 2.2</h3>
-        <h4>Date:</h4>
-        <span class="date">
-          <time datetime="2026-03-06">
-            6<sup>th</sup> March, 2026
-          </time>
-        </span>
-        <h4>Description</h4>
-        <p class="description">
-          Reworked the UI for Controll App
-        </p>
-      </div>
-      <div class="version">
-        <h3>Version 3.1</h3>
-        <img src="esp32lightsystem/3_1.svg" alt="version 3.1 schema" class="schemaImage"/>
-        <div class="date">
-          <h4>Date:</h4>
-          24<sup>th</sup> March, 2026
         </div>
-        <div class="description">
-          <h4>Description</h4>
-          Added Oled Screen
-          <ul>
-            <li>Shows the IP address of the controller</li>
-            <li>Shows the upcoming events and last triggered event</li>
-            <li>Shows upcoming time</li>
-          </ul>
+        <div class="text-zinc-500 text-xs">
+          <p>Building Unessary Systems</p>
         </div>
-      </div>
-      <div class="version">
-        <h3>Version 3.2.1</h3>
-        <img src="esp32lightsystem/3_2_1.svg" alt="version 3.2.1 schema" class="schemaImage"/>
-        <h4>Date:</h4>
-        <span class="date">
-          <time datetime="2026-03-25">
-            25<sup>th</sup> March, 2026
-          </time>
-        </span>
-        <h4>Description</h4>
-        <p class="description">
-          Added SD card module
-          <ul>
-            <li>Logs startup status</li>
-          </ul>
-        </p>
-      </div>
-      <div class="version">
-        <h3>Version 3.2.2</h3>
-        <h4>Date:</h4>
-        <span class="date">
-          <time datetime="2026-03-26">
-
-            26<sup>th</sup> March, 2026
-          </time>
-        </span>
-        <p class="description">
-          <h4>Description</h4>
-          Shifted scheduling storage
-          <ul>
-            <li>Load default schedule from SD card rather than ESP32 flash</li>
-            <li>Log SD card errors to OLED screen</li>
-            <li>Can use the SD card to easily change schedule without reflashing</li>
-          </ul>
-        </p>
-      </div>
-         <div class="version">
-        <h3>Version 4.1.0</h3>
-         <div class="flowcharts">
-          <div class="flowchart">
-            <img src="esp32lightsystem/flowCharts/setup.svg" alt="4.1.0-setup">
-            <p>
-              Fig: Flowchart for Setup
-            </p>
+      </nav>
+      <main class="flex-1 md:pt-5 md:p-8 overflow-y-auto scroll-smooth">
+        <header class="mb-20">
+          <p>
+            This is just a place to track my progress throughout time with my
+            ESP32.
+          </p>
+        </header>
+        <article id="esp-lighting">
+          <div class="flex items-baseline gap-4 mb-6">
+            <h2 class="text-3xl font-bold uppercase tracking-tighter">
+              ESP32 Light System
+            </h2>
+            <a
+              href="https://github.com/whyshouldibother/Esp32Rewrite"
+              class="text-xs border border-zinc-700 px-2 py-1 hover:bg-white hover:text-black transition-colors"
+              >GITHUB</a
+            >
           </div>
-          <div class="flowchart">
-            <img src="esp32lightsystem/flowCharts/loop.svg" alt="4.1.0-loop">
-            <p>
-              Fig: Flowchart for Loop
-            </p>
+          <div class="grid md:grid-cols-2 gap-12 p-8 mb-12">
+            <div>
+              <h3
+                class="text-sm font-bold uppercase mb-4 text-zinc-500 underline underline-offset-4"
+              >
+                Pending Tasks
+              </h3>
+              <ul class="space-y-3 text-sm list-inside list-square">
+                <li>Add human detection (Reed + PIR)</li>
+                <li>SD card data editing</li>
+                <li>Revamp UI for scheduling</li>
+                <li>Separate power supply / external driver</li>
+              </ul>
+            </div>
+            <div
+              class="border-t md:border-t-0 md:border-l border-zinc-800 pt-8 md:pt-0 md:pl-8"
+            >
+              <h3
+                class="text-sm font-bold uppercase mb-4 text-zinc-500 underline underline-offset-4"
+              >
+                Completed
+              </h3>
+              <ul
+                class="space-y-2 text-sm text-zinc-400 line-through decoration-zinc-600"
+              >
+                <li>Relay Module</li>
+                <li>WiFi Integration</li>
+                <li>Over the WiFi Control</li>
+                <li>Scheduled Operations</li>
+                <li>OLED Stats Screen</li>
+                <li>SD Loading</li>
+                <li>Better Wiring Setup</li>
+              </ul>
+            </div>
           </div>
-           <div class="flowchart">
-            <img src="esp32lightsystem/flowCharts/timeSync.svg" alt="4.1.0-time-sync">
-                        <p>
-              Fig: Flowchart for Module Wifi Connection
-            </p>
+          <div
+            class="flex flex-col-reverse relative border-l border-white/20 ml-4 md:ml-0"
+          >
+            <section class="relative pl-8 pb-12 group">
+              <div
+                class="absolute -left-[12px] top-1 w-4 h-4 bg-black border border-white group-hover:bg-white transition-colors rounded-lg"
+              ></div>
+              <div class="flex flex-col mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl font-bold uppercase tracking-tight"
+                    >Version 1.0.0</span
+                  >
+                  <span
+                    class="text-[10px] px-2 py-0.5 border border-white/30 text-zinc-400"
+                    >INITIAL RELEASE</span
+                  >
+                </div>
+              </div>
+              <div class="space-y-4 max-w-3xl">
+                <p class="text-zinc-300 leading-relaxed">
+                  Initial project setup. Basic Interface for Controlling the
+                  lights was established.
+                </p>
+                <div
+                  class="border border-white/10 bg-zinc-900/30 p-2 grayscale hover:grayscale-0 transition-all cursor-crosshair"
+                >
+                  <img
+                    src="./images/esp32lightsystem/schema/1_0_0.svg"
+                    alt="schema"
+                    class="w-full h-auto opacity-80"
+                  />
+                </div>
+                <ul
+                  class="text-sm list-disc list-inside text-zinc-400 space-y-1"
+                >
+                  <li>Used a relay module to control the lights</li>
+                  <li>Implented http endpoint for controlling the relay</li>
+                </ul>
+              </div>
+            </section>
+            <section class="relative pl-8 pb-12 group">
+              <div
+                class="absolute -left-[12px] top-1 w-4 h-4 bg-black border border-white group-hover:bg-white transition-colors rounded-lg"
+              ></div>
+              <div class="flex flex-col mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl font-bold uppercase tracking-tight"
+                    >Version 2.1.0</span
+                  >
+                </div>
+                <time
+                  class="text-xs text-zinc-500 uppercase tracking-widest mt-1"
+                  >March 5, 2026</time
+                >
+              </div>
+              <div class="space-y-4 max-w-3xl">
+                <p class="text-zinc-300 leading-relaxed">
+                  Implemented an automatic scheuling system for the lights
+                </p>
+              </div>
+            </section>
+            <section class="relative pl-8 pb-12 group">
+              <div
+                class="absolute -left-[12px] top-1 w-4 h-4 bg-black border border-white group-hover:bg-white transition-colors rounded-lg"
+              ></div>
+              <div class="flex flex-col mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl font-bold uppercase tracking-tight"
+                    >Version 2.2.0</span
+                  >
+                </div>
+                <time
+                  class="text-xs text-zinc-500 uppercase tracking-widest mt-1"
+                  >March 6, 2026</time
+                >
+              </div>
+              <div class="space-y-4 max-w-3xl">
+                <p class="text-zinc-300 leading-relaxed">
+                  Reimplented the UI for Controller Application In Flutter
+                </p>
+              </div>
+            </section>
+            <section class="relative pl-8 pb-12 group">
+              <div
+                class="absolute -left-[12px] top-1 w-4 h-4 bg-black border border-white group-hover:bg-white transition-colors rounded-lg"
+              ></div>
+              <div class="flex flex-col mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl font-bold uppercase tracking-tight"
+                    >Version 3.1.0</span
+                  >
+                </div>
+                <time
+                  class="text-xs text-zinc-500 uppercase tracking-widest mt-1"
+                  >March 24, 2026</time
+                >
+              </div>
+              <div class="space-y-4 max-w-3xl">
+                <p class="text-zinc-300 leading-relaxed">
+                  Using an OLED Screen for live stat updates
+                </p>
+                <div
+                  class="border border-white/10 bg-zinc-900/30 p-2 grayscale hover:grayscale-0 transition-all cursor-crosshair"
+                >
+                  <img
+                    src="./images/esp32lightsystem/schema/3_1_0.svg"
+                    alt="schema"
+                    class="w-full h-auto opacity-80"
+                  />
+                </div>
+                <ul
+                  class="text-sm list-disc list-inside text-zinc-400 space-y-1"
+                >
+                  <li>Displays Network address for the controller</li>
+                  <li>Displays upcoming events and last triggered event</li>
+                  <li>Displays current time</li>
+                </ul>
+              </div>
+            </section>
+            <section class="relative pl-8 pb-12 group">
+              <div
+                class="absolute -left-[12px] top-1 w-4 h-4 bg-black border border-white group-hover:bg-white transition-colors rounded-lg"
+              ></div>
+              <div class="flex flex-col mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl font-bold uppercase tracking-tight"
+                    >Version 3.2.1</span
+                  >
+                </div>
+                <time
+                  class="text-xs text-zinc-500 uppercase tracking-widest mt-1"
+                  >March 25, 2026</time
+                >
+              </div>
+              <div class="space-y-4 max-w-3xl">
+                <p class="text-zinc-300 leading-relaxed">
+                  Added SD card Module
+                </p>
+                <div
+                  class="border border-white/10 bg-zinc-900/30 p-2 grayscale hover:grayscale-0 transition-all cursor-crosshair"
+                >
+                  <img
+                    src="./images/esp32lightsystem/schema/3_2_1.svg"
+                    alt="schema"
+                    class="w-full h-auto opacity-80"
+                  />
+                </div>
+                <ul
+                  class="text-sm list-disc list-inside text-zinc-400 space-y-1"
+                >
+                  <li>Logs Startup Status</li>
+                </ul>
+              </div>
+            </section>
+            <section class="relative pl-8 pb-12 group">
+              <div
+                class="absolute -left-[12px] top-1 w-4 h-4 bg-black border border-white group-hover:bg-white transition-colors rounded-lg"
+              ></div>
+              <div class="flex flex-col mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl font-bold uppercase tracking-tight"
+                    >Version 3.2.2</span
+                  >
+                  <span
+                    class="text-[10px] px-2 py-0.5 border border-white/30 text-green-400"
+                    >LASTEST RELEASE</span
+                  >
+                </div>
+                <time
+                  class="text-xs text-zinc-500 uppercase tracking-widest mt-1"
+                  >March 26, 2026</time
+                >
+              </div>
+              <div class="space-y-4 max-w-3xl">
+                <p class="text-zinc-300 leading-relaxed">
+                  Shifting Scheduling to SD card
+                </p>
+                <ul
+                  class="text-sm list-disc list-inside text-zinc-400 space-y-1"
+                >
+                  <li>Look for scheduling in SD card.</li>
+                  <li>Backup schedule in Flash.</li>
+                  <li>Easy scheduling editing via editing the SD card</li>
+                  <li>Log SD card errors to OLED screen</li>
+                </ul>
+              </div>
+            </section>
+            <section class="relative pl-8 pb-12 group">
+              <div
+                class="absolute -left-[12px] top-1 w-4 h-4 bg-black border border-white group-hover:bg-white transition-colors rounded-lg"
+              ></div>
+              <div class="flex flex-col mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl font-bold uppercase tracking-tight"
+                    >Version 4.1.0</span
+                  >
+                  <span
+                    class="text-[10px] px-2 py-0.5 border border-white/30 text-blue-400"
+                    >WORK IN PROGRESS</span
+                  >
+                </div>
+                <time
+                  class="text-xs text-zinc-500 uppercase tracking-widest mt-1"
+                  >April 16, 2026</time
+                >
+              </div>
+              <div class="space-y-4 max-w-3xl">
+                <p class="text-zinc-300 leading-relaxed">
+                  Reworking the entire firmware code base to be more modular and
+                  swappable
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div
+                    class="border border-zinc-800 p-4 bg-zinc-950 flex flex-col items-center"
+                  >
+                    <img
+                      src="./images/esp32lightsystem/flowCharts/setup.svg"
+                      class="w-full h-auto opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                    <p
+                      class="text-[10px] text-zinc-600 mt-4 uppercase font-bold tracking-widest"
+                    >
+                      Fig: Setup Logic
+                    </p>
+                  </div>
+                  <div
+                    class="border border-zinc-800 p-4 bg-zinc-950 flex flex-col items-center"
+                  >
+                    <img
+                      src="./images/esp32lightsystem/flowCharts/loop.svg"
+                      class="w-full h-auto opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                    <p
+                      class="text-[10px] text-zinc-600 mt-4 uppercase font-bold tracking-widest"
+                    >
+                      Fig: Loop Logic
+                    </p>
+                  </div>
+                  <div
+                    class="border border-zinc-800 p-4 bg-zinc-950 flex flex-col items-center"
+                  >
+                    <img
+                      src="./images/esp32lightsystem/flowCharts/connectWifi.svg"
+                      class="w-full h-auto opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                    <p
+                      class="text-[10px] text-zinc-600 mt-4 uppercase font-bold tracking-widest"
+                    >
+                      Fig: WiFi Connection
+                    </p>
+                  </div>
+                  <div
+                    class="border border-zinc-800 p-4 bg-zinc-950 flex flex-col items-center"
+                  >
+                    <img
+                      src="./images/esp32lightsystem/flowCharts/timeSync.svg"
+                      class="w-full h-auto opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                    <p
+                      class="text-[10px] text-zinc-600 mt-4 uppercase font-bold tracking-widest"
+                    >
+                      Fig: Time Sync
+                    </p>
+                  </div>
+                </div>
+                <ul
+                  class="text-sm list-disc list-inside text-zinc-400 space-y-1"
+                >
+                  <li>
+                    Integrating flowcharts for better representation of the
+                    execution flow.
+                  </li>
+                  <li>
+                    Incompleted work still in progress for full implementation.
+                  </li>
+                </ul>
+              </div>
+            </section>
           </div>
-           <div class="flowchart">
-            <img src="esp32lightsystem/flowCharts/connectWifi.svg" alt="4.1.0-connect-wifi">
-            <p>
-              Fig: Flowchart for Time Sync
-            </p>
+        </article>
+        <article id="esp-gif">
+          <div class="flex items-baseline gap-4 mb-6">
+            <h2 class="text-3xl font-bold uppercase tracking-tighter">
+              ESP32 GIF SYSTEM
+            </h2>
           </div>
+          <div class="grid md:grid-cols-2 gap-12 p-8 mb-12">
+            <div>
+              <h3
+                class="text-sm font-bold uppercase mb-4 text-zinc-500 underline underline-offset-4"
+              >
+                Pending Tasks
+              </h3>
+              <ul class="space-y-3 text-sm list-inside list-square">
+                <li>Implement uploading gifs to system over WiFi.</li>
+                <li>Implement read gifs from SD card</li>
+              </ul>
+            </div>
+            <div
+              class="border-t md:border-t-0 md:border-l border-zinc-800 pt-8 md:pt-0 md:pl-8"
+            >
+              <h3
+                class="text-sm font-bold uppercase mb-4 text-zinc-500 underline underline-offset-4"
+              >
+                Completed
+              </h3>
+              <ul
+                class="space-y-2 text-sm text-zinc-400 line-through decoration-zinc-600"
+              >
+                <li>Load Gifs as an array of bitmap images</li>
+              </ul>
+            </div>
           </div>
-        <h4>Date:</h4>
-        <span class="date">
-          <time datetime="2026-04-16">
-
-            16<sup>th</sup> April, 2026
-          </time>
-        </span>
-        <p class="description">
-          <h4>Description</h4>
-          Reworked the firmware code to be more modular by using modules for each task.
-          <ul>
-            <li>Use a Flow chart for better representation of the execution runs</li>
-            <li>Although the flow chart is not fully adapted</li>
-          </ul>
-        </p>
-      </div>
-    </article>
-    <article class="project" id="esp-gif">
-      <h2>Esp32 gif loading</h2>
-      <h3>Todo</h3>
-      <div class="todo">
-        <ul class="pending">
-          <li>
-            Adding a way to uploading gifs over wifi
-          </li>
-        </ul>
-      </div>
-      <div class="version">
-        <h3>Version 1</h3>
-        <img src="esp32gifsystem/1.svg" alt="version 1 schema" class="schemaImage"/>
-        <h4>Date:</h4>
-        <span class="date">
-          <time datetime="2026-03-24">
-            24<sup>th</sup> March, 2026
-          </time>
-        </span>
-        <h4>Description</h4>
-        <p class="description">
-          Loading Gif
-          <ul>
-            <li>Load gif as series of bitmap</li>
-          </ul>
-        </p>
-      </div>
-    </article>
-    <article class="project" id="esp-gif">
-      <h2>Esp32 auto PingPong system</h2>
-      <h3>Todo</h3>
-      <div class="todo">
-        <ul class="pending">
-          <li>
-            Add a option for human players
-          </li>
-        </ul>
-        <ul class="completed">
-          <li>
-            Automatic Gameplay 
-          </li>
-        </ul>
-      </div>
-      <div class="version">
-        <h3>Version 1</h3>
-        <img src="esp32gifsystem/1.svg" alt="version 1 schema" class="schemaImage"/>
-        <h4>Date:</h4>
-        <span class="date">
-          <time datetime="2026-03-24">
-            24<sup>th</sup> March, 2026
-          </time>
-        </span>
-        <h4>Description</h4>
-        <p class="description">
-          An simulation of the perfect game of ping pong
-          <ul>
-            <li>Simulates a game of perfect ping pong and shows on the oled screen</li>
-          </ul>
-        </p>
-      </div>
-    </article>
+          <div
+            class="flex flex-col-reverse relative border-l border-white/20 ml-4 md:ml-0"
+          >
+            <section class="relative pl-8 pb-12 group">
+              <div
+                class="absolute -left-[12px] top-1 w-4 h-4 bg-black border border-white group-hover:bg-white transition-colors rounded-lg"
+              ></div>
+              <div class="flex flex-col mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl font-bold uppercase tracking-tight"
+                    >Version 1.0.0</span
+                  >
+                  <span
+                    class="text-[10px] px-2 py-0.5 border border-white/30 text-zinc-400"
+                    >INITIAL RELEASE</span
+                  >
+                  <span
+                    class="text-[10px] px-2 py-0.5 border border-white/30 text-red-400"
+                    >ON HOLD</span
+                  >
+                </div>
+                <time
+                  class="text-xs text-zinc-500 uppercase tracking-widest mt-1"
+                  >March 26, 2026</time
+                >
+              </div>
+              <div class="space-y-4 max-w-3xl">
+                <p class="text-zinc-300 leading-relaxed">
+                  Initial project setup. Loading gifs from flash.
+                </p>
+                <div
+                  class="border border-white/10 bg-zinc-900/30 p-2 grayscale hover:grayscale-0 transition-all cursor-crosshair"
+                >
+                  <img
+                    src="./images/esp32gifsystem/schema/1_0_0.svg"
+                    alt="schema"
+                    class="w-full h-auto opacity-80"
+                  />
+                </div>
+                <ul
+                  class="text-sm list-disc list-inside text-zinc-400 space-y-1"
+                >
+                  <li>Loads gif as a series of bitmap images</li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </article>
+        <article id="esp-ping-pong">
+          <div class="flex items-baseline gap-4 mb-6">
+            <h2 class="text-3xl font-bold uppercase tracking-tighter">
+              ESP32 Automatic Ping Pong System
+            </h2>
+          </div>
+          <div class="grid md:grid-cols-2 gap-12 p-8 mb-12">
+            <div>
+              <h3
+                class="text-sm font-bold uppercase mb-4 text-zinc-500 underline underline-offset-4"
+              >
+                Pending Tasks
+              </h3>
+              <ul class="space-y-3 text-sm list-inside list-square">
+                <li>Implement human controlable players.</li>
+                <li>Implement score recording</li>
+              </ul>
+            </div>
+            <div
+              class="border-t md:border-t-0 md:border-l border-zinc-800 pt-8 md:pt-0 md:pl-8"
+            >
+              <h3
+                class="text-sm font-bold uppercase mb-4 text-zinc-500 underline underline-offset-4"
+              >
+                Completed
+              </h3>
+              <ul
+                class="space-y-2 text-sm text-zinc-400 line-through decoration-zinc-600"
+              >
+                <li>Fully automatic Gameplay.</li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="flex flex-col-reverse relative border-l border-white/20 ml-4 md:ml-0"
+          >
+            <section class="relative pl-8 pb-12 group">
+              <div
+                class="absolute -left-[12px] top-1 w-4 h-4 bg-black border border-white group-hover:bg-white transition-colors rounded-lg"
+              ></div>
+              <div class="flex flex-col mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl font-bold uppercase tracking-tight"
+                    >Version 1.0.0</span
+                  >
+                  <span
+                    class="text-[10px] px-2 py-0.5 border border-white/30 text-zinc-400"
+                    >INITIAL RELEASE</span
+                  >
+                  <span
+                    class="text-[10px] px-2 py-0.5 border border-white/30 text-red-400"
+                    >ON HOLD</span
+                  >
+                </div>
+                <time
+                  class="text-xs text-zinc-500 uppercase tracking-widest mt-1"
+                  >March 29, 2026</time
+                >
+              </div>
+              <div class="space-y-4 max-w-3xl">
+                <p class="text-zinc-300 leading-relaxed">
+                  Initial project setup. An simulation of the perfect game of
+                  ping pong
+                </p>
+                <div
+                  class="border border-white/10 bg-zinc-900/30 p-2 grayscale hover:grayscale-0 transition-all cursor-crosshair"
+                >
+                  <img
+                    src="./images/esp32autopingpongsystem/1_0_0.svg"
+                    alt="schema"
+                    class="w-full h-auto opacity-80"
+                  />
+                </div>
+                <ul
+                  class="text-sm list-disc list-inside text-zinc-400 space-y-1"
+                >
+                  <li>Simulates a game of perfect ping pong</li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </article>
+      </main>
+    </div>
   </body>
 </html>
